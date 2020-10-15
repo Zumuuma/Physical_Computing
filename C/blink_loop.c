@@ -1,19 +1,20 @@
-#include <stdint.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <wiringPi.h>
 
-#define pin 7 //#7ç•ªãƒãƒ¼ãƒˆä½¿ç”¨
+#define pin 7 //‚V”Ôƒ|[ƒgg—pBƒ‰ƒYƒpƒC‚V”Ôƒsƒ“‚ÉÚ‘±B
 
 int main(void)
 {
-	wiringPiSetup();	  //https://projects.drogon.net/raspberry-pi/wiringpi/pins/ã‚’å‚ç…§ã—ã¦ãƒãƒ¼ãƒˆç•ªå·ã‚’ç…§ã‚‰ã—åˆã‚ã›ã‚‹ã€‚
-	pinMode(pin, OUTPUT); //å‡ºåŠ›ãƒ¢ãƒ¼ãƒ‰
-	for (;;)			  //ãƒ«ãƒ¼ãƒ—å‡¦ç†
+	wiringPiSetup();	  //https://projects.drogon.net/raspberry-pi/wiringpi/pins/‚ğQÆ‚µ‚Äƒ|[ƒg”Ô†‚ğÆ‚ç‚µ‡‚í‚¹‚éB
+	pinMode(pin, OUTPUT); //o—Íƒ‚[ƒh
+
+	for (;;) //ƒ‹[ƒvˆ—
 	{
-		digitalWrite(pin, HIGH); //+3.3Vã‚’ã‚ªãƒ³
-		delay(1000);			 //()ç§’é–“ã‚ªãƒ³ã«ã—ãŸã¾ã¾ã«ã™ã‚‹ã€‚
-		digitalWrite(pin, LOW);	 //+3.3Vã‚’ã‚ªãƒ•ã€‚ã¤ã¾ã‚Šã€0V
-		delay(1000);			 //()ç§’é–“ã‚ªãƒ•ã«ã—ãŸã¾ã¾ã«ã™ã‚‹ã€‚
+		digitalWrite(pin, HIGH); //+‚R.‚RV‚ğƒIƒ“
+		delay(1000);			 //()•bŠÔƒIƒ“‚É‚µ‚½‚Ü‚Ü‚É‚·‚éB(ƒ~ƒŠ•b)
+		digitalWrite(pin, LOW);	 //+‚R.‚RV‚ğƒIƒtB‚Â‚Ü‚èA‚OV
+		delay(1000);			 //()•bŠÔƒIƒt‚É‚µ‚½‚Ü‚Ü‚É‚·‚éB(ƒ~ƒŠ•b)
 	}
 
 	return 0;
