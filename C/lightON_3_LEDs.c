@@ -1,29 +1,29 @@
-#include <stdint.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <wiringPi.h>
 
-#define pin_1 0 //‚O”Ôƒ|[ƒgg—pBƒ‰ƒYƒpƒC‚P‚P”Ôƒsƒ“‚ÉÚ‘±B
-#define pin_2 3 //‚R”Ôƒ|[ƒgg—pBƒ‰ƒYƒpƒC‚P‚T”Ôƒsƒ“‚ÉÚ‘±B
-#define pin_3 7 //‚V”Ôƒ|[ƒgg—pBƒ‰ƒYƒpƒC‚V”Ôƒsƒ“‚ÉÚ‘±B
+#define pin_1 0 //ï¼ç•ªãƒãƒ¼ãƒˆä½¿ç”¨ã€‚ãƒ©ã‚ºãƒ‘ã‚¤ï¼‘ï¼‘ç•ªãƒ”ãƒ³ã«æ¥ç¶šã€‚
+#define pin_2 3 //ï¼“ç•ªãƒãƒ¼ãƒˆä½¿ç”¨ã€‚ãƒ©ã‚ºãƒ‘ã‚¤ï¼‘ï¼•ç•ªãƒ”ãƒ³ã«æ¥ç¶šã€‚
+#define pin_3 7 //ï¼—ç•ªãƒãƒ¼ãƒˆä½¿ç”¨ã€‚ãƒ©ã‚ºãƒ‘ã‚¤ï¼—ç•ªãƒ”ãƒ³ã«æ¥ç¶šã€‚
 
 int main(void)
 {
-	wiringPiSetup();		//https://projects.drogon.net/raspberry-pi/wiringpi/pins/‚ğQÆ‚µ‚Äƒ|[ƒg”Ô†‚ğÆ‚ç‚µ‡‚í‚¹‚éB
-	pinMode(pin_1, OUTPUT); //o—Íƒ‚[ƒh
-	pinMode(pin_2, OUTPUT); //o—Íƒ‚[ƒh
-	pinMode(pin_3, OUTPUT); //o—Íƒ‚[ƒh
+	wiringPiSetup();		//https://projects.drogon.net/raspberry-pi/wiringpi/pins/ã‚’å‚ç…§ã—ã¦ãƒãƒ¼ãƒˆç•ªå·ã‚’ç…§ã‚‰ã—åˆã‚ã›ã‚‹ã€‚
+	pinMode(pin_1, OUTPUT); //å‡ºåŠ›ãƒ¢ãƒ¼ãƒ‰
+	pinMode(pin_2, OUTPUT); //å‡ºåŠ›ãƒ¢ãƒ¼ãƒ‰
+	pinMode(pin_3, OUTPUT); //å‡ºåŠ›ãƒ¢ãƒ¼ãƒ‰
 
-	for (;;) //ŒJ‚è•Ô‚µˆ—
+	for (;;) //ç¹°ã‚Šè¿”ã—å‡¦ç†
 	{
-		digitalWrite(pin_1, HIGH); //+‚R.‚RV‚ğƒIƒ“
-		delay(500);				   //()•bŠÔƒIƒ“‚É‚µ‚½‚Ü‚Ü‚É‚·‚éB(ƒ~ƒŠ•b)
-		digitalWrite(pin_1, LOW);  //+‚R.‚RV‚ğƒIƒtB‚Â‚Ü‚èA‚OV
-		digitalWrite(pin_2, HIGH); //+‚R.‚RV‚ğƒIƒ“
-		delay(500);				   //()•bŠÔƒIƒ“‚É‚µ‚½‚Ü‚Ü‚É‚·‚éB(ƒ~ƒŠ•b)
-		digitalWrite(pin_2, LOW);  //+‚R.‚RV‚ğƒIƒtB‚Â‚Ü‚èA‚OV
-		digitalWrite(pin_3, HIGH); //+‚R.‚RV‚ğƒIƒ“
-		delay(500);				   //()•bŠÔƒIƒ“‚É‚µ‚½‚Ü‚Ü‚É‚·‚éB(ƒ~ƒŠ•b)
-		digitalWrite(pin_3, LOW);  //+‚R.‚RV‚ğƒIƒtB‚Â‚Ü‚èA‚OV
+		digitalWrite(pin_1, HIGH); //+ï¼“.ï¼“Vã‚’ã‚ªãƒ³
+		delay(500);				   //()ç§’é–“ã‚ªãƒ³ã«ã—ãŸã¾ã¾ã«ã™ã‚‹ã€‚(ãƒŸãƒªç§’)
+		digitalWrite(pin_1, LOW);  //+ï¼“.ï¼“Vã‚’ã‚ªãƒ•ã€‚ã¤ã¾ã‚Šã€ï¼V
+		digitalWrite(pin_2, HIGH); //+ï¼“.ï¼“Vã‚’ã‚ªãƒ³
+		delay(500);				   //()ç§’é–“ã‚ªãƒ³ã«ã—ãŸã¾ã¾ã«ã™ã‚‹ã€‚(ãƒŸãƒªç§’)
+		digitalWrite(pin_2, LOW);  //+ï¼“.ï¼“Vã‚’ã‚ªãƒ•ã€‚ã¤ã¾ã‚Šã€ï¼V
+		digitalWrite(pin_3, HIGH); //+ï¼“.ï¼“Vã‚’ã‚ªãƒ³
+		delay(500);				   //()ç§’é–“ã‚ªãƒ³ã«ã—ãŸã¾ã¾ã«ã™ã‚‹ã€‚(ãƒŸãƒªç§’)
+		digitalWrite(pin_3, LOW);  //+ï¼“.ï¼“Vã‚’ã‚ªãƒ•ã€‚ã¤ã¾ã‚Šã€ï¼V
 	}
 
 	return 0;
