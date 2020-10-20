@@ -2,73 +2,73 @@
 #include <stdlib.h>
 #include <wiringPi.h>
 
-#define pin_1 0 //‚O”Ôƒ|[ƒgg—pBƒ‰ƒYƒpƒC‚P‚P”Ôƒsƒ“‚ÉÚ‘±B
-#define pin_2 3 //‚R”Ôƒ|[ƒgg—pBƒ‰ƒYƒpƒC‚P‚T”Ôƒsƒ“‚ÉÚ‘±B
-#define pin_3 7 //‚V”Ôƒ|[ƒgg—pBƒ‰ƒYƒpƒC‚V”Ôƒsƒ“‚ÉÚ‘±B
+#define pin_1 0 //ï¼ç•ªãƒãƒ¼ãƒˆä½¿ç”¨ã€‚ãƒ©ã‚ºãƒ‘ã‚¤ï¼‘ï¼‘ç•ªãƒ”ãƒ³ã«æ¥ç¶šã€‚
+#define pin_2 3 //ï¼“ç•ªãƒãƒ¼ãƒˆä½¿ç”¨ã€‚ãƒ©ã‚ºãƒ‘ã‚¤ï¼‘ï¼•ç•ªãƒ”ãƒ³ã«æ¥ç¶šã€‚
+#define pin_3 7 //ï¼—ç•ªãƒãƒ¼ãƒˆä½¿ç”¨ã€‚ãƒ©ã‚ºãƒ‘ã‚¤ï¼—ç•ªãƒ”ãƒ³ã«æ¥ç¶šã€‚
 
-int data[3] = {0}; //‚±‚±‚É•Û‘¶B‚O‚Å‰Šú‰»
-int x = 0;		   //•ÏŠ·‚µ‚½‚¢‚P‚Oi”
+int data[3] = {0}; //ã“ã“ã«ä¿å­˜ã€‚ï¼ã§åˆæœŸåŒ–
+int x = 0;		   //å¤‰æ›ã—ãŸã„ï¼‘ï¼é€²æ•°
 
-int convert_from_10_to_20(void) //‚P‚Oi”‚©‚ç‚Qi”‚É•ÏŠ·‚·‚éŠÖ”
+int convert_from_10_to_2(void) //ï¼‘ï¼é€²æ•°ã‹ã‚‰ï¼’é€²æ•°ã«å¤‰æ›ã™ã‚‹é–¢æ•°
 {
-	int z = x;	 //•ÏŠ·‚µ‚½‚¢‚P‚Oi”
-	int tmp = 0; //—]‚è‚ğ‘ã“ü‚·‚é•Ï”B‚O‚Å‰Šú‰»
+	int z = x;	 //å¤‰æ›ã—ãŸã„ï¼‘ï¼é€²æ•°
+	int tmp = 0; //ä½™ã‚Šã‚’ä»£å…¥ã™ã‚‹å¤‰æ•°ã€‚ï¼ã§åˆæœŸåŒ–
 
 	for (int i = 0; i < 3; i++)
 	{
-		tmp = z % 2;   //—]‚è‚ğ‹‚ß‚Ätmp‚É‘ã“ü
-		z = z / 2;	   //•ÏŠ·‚µ‚½‚¢‚P‚Oi”‚ğ‚Q‚ÅŠ„‚é
-		data[i] = tmp; //‚Qi”‚ğ•Û‘¶‚·‚é‚Æ‚±‚ë‚É—]‚è(tmp)‚ğ‘ã“ü
+		tmp = z % 2;   //ä½™ã‚Šã‚’æ±‚ã‚ã¦tmpã«ä»£å…¥
+		z = z / 2;	   //å¤‰æ›ã—ãŸã„ï¼‘ï¼é€²æ•°ã‚’ï¼’ã§å‰²ã‚‹
+		data[i] = tmp; //ï¼’é€²æ•°ã‚’ä¿å­˜ã™ã‚‹ã¨ã“ã‚ã«ä½™ã‚Š(tmp)ã‚’ä»£å…¥
 	}
 
-	printf("%d %d %d\n", data[2], data[1], data[0]); //ƒRƒ}ƒ“ƒhƒvƒƒ“ƒvƒgã‚Å’l‚ğ•\¦
+	printf("%d %d %d\n", data[2], data[1], data[0]); //ã‚³ãƒãƒ³ãƒ‰ãƒ—ãƒ­ãƒ³ãƒ—ãƒˆä¸Šã§å€¤ã‚’è¡¨ç¤º
 
 	return 0;
 }
 
 int main(void)
 {
-	wiringPiSetup();		//https://projects.drogon.net/raspberry-pi/wiringpi/pins/‚ğQÆ‚µ‚Äƒ|[ƒg”Ô†‚ğÆ‚ç‚µ‡‚í‚¹‚éB
-	pinMode(pin_1, OUTPUT); //o—Íƒ‚[ƒh
-	pinMode(pin_2, OUTPUT); //o—Íƒ‚[ƒh
-	pinMode(pin_3, OUTPUT); //o—Íƒ‚[ƒh
+	wiringPiSetup();		//https://projects.drogon.net/raspberry-pi/wiringpi/pins/ã‚’å‚ç…§ã—ã¦ãƒãƒ¼ãƒˆç•ªå·ã‚’ç…§ã‚‰ã—åˆã‚ã›ã‚‹ã€‚
+	pinMode(pin_1, OUTPUT); //å‡ºåŠ›ãƒ¢ãƒ¼ãƒ‰
+	pinMode(pin_2, OUTPUT); //å‡ºåŠ›ãƒ¢ãƒ¼ãƒ‰
+	pinMode(pin_3, OUTPUT); //å‡ºåŠ›ãƒ¢ãƒ¼ãƒ‰
 
 	for (;;)
 	{
-		convert_from_10_to_20();
+		convert_from_10_to_2();
 
 		if (data[2] == 1)
 		{
-			digitalWrite(pin_1, HIGH); //+‚R.‚RV‚ğƒIƒ“
+			digitalWrite(pin_1, HIGH); //+ï¼“.ï¼“Vã‚’ã‚ªãƒ³
 		}
 		else
 		{
-			digitalWrite(pin_1, LOW); //+‚R.‚RV‚ğƒIƒtB‚Â‚Ü‚èA‚OV
+			digitalWrite(pin_1, LOW); //+ï¼“.ï¼“Vã‚’ã‚ªãƒ•ã€‚ã¤ã¾ã‚Šã€ï¼V
 		}
 
 		if (data[1] == 1)
 		{
-			digitalWrite(pin_2, HIGH); //+‚R.‚RV‚ğƒIƒ“
+			digitalWrite(pin_2, HIGH); //+ï¼“.ï¼“Vã‚’ã‚ªãƒ³
 		}
 		else
 		{
-			digitalWrite(pin_2, LOW); //+‚R.‚RV‚ğƒIƒtB‚Â‚Ü‚èA‚OV
+			digitalWrite(pin_2, LOW); //+ï¼“.ï¼“Vã‚’ã‚ªãƒ•ã€‚ã¤ã¾ã‚Šã€ï¼V
 		}
 
 		if (data[0] == 1)
 		{
-			digitalWrite(pin_3, HIGH); //+‚R.‚RV‚ğƒIƒ“
+			digitalWrite(pin_3, HIGH); //+ï¼“.ï¼“Vã‚’ã‚ªãƒ³
 		}
 		else
 		{
-			digitalWrite(pin_3, LOW); //+‚R.‚RV‚ğƒIƒtB‚Â‚Ü‚èA‚OV
+			digitalWrite(pin_3, LOW); //+ï¼“.ï¼“Vã‚’ã‚ªãƒ•ã€‚ã¤ã¾ã‚Šã€ï¼V
 		}
 
-		delay(500); //x‚Ì’l‚ğƒCƒ“ƒNƒŠƒƒ“ƒg‚·‚é‚Ü‚Å‚ÌŠÔ(ƒ~ƒŠ•b)
+		delay(500); //xã®å€¤ã‚’ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆã™ã‚‹ã¾ã§ã®æ™‚é–“(ãƒŸãƒªç§’)
 
-		x = x + 1; //x‚Ì’l‚ğƒCƒ“ƒNƒŠƒƒ“ƒg
+		x = x + 1; //xã®å€¤ã‚’ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆ
 
-		if (x == 8) //x‚Ì’l‚ª‚W‚È‚çx‚Ì’l‚ğ‚O‚É–ß‚·
+		if (x == 8) //xã®å€¤ãŒï¼˜ãªã‚‰xã®å€¤ã‚’ï¼ã«æˆ»ã™
 		{
 			x = 0;
 		}
