@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <wiringPi.h>
 
-#define pin_3 0	 //０番ポート使用。ラズパイ１１番ピンに接続。
-#define pin_2 2	 //２番ポート使用。ラズパイ１３番ピンに接続。
-#define pin_1 3	 //３番ポート使用。ラズパイ１５番ピンに接続。
+#define PIN_3 0	 //０番ポート使用。ラズパイ１１番ピンに接続。
+#define PIN_2 2	 //２番ポート使用。ラズパイ１３番ピンに接続。
+#define PIN_1 3	 //３番ポート使用。ラズパイ１５番ピンに接続。
 #define BUTTON 7 //７番ポート使用。ラズパイ７番ピンに接続。
 
 int val = 0;	   //入力ピンの状態がこの変数(val)に記憶される
@@ -45,29 +45,29 @@ void loop()
 
 		if (data[2] == 1)
 		{
-			digitalWrite(pin_1, HIGH); //+３.３Vをオン
+			digitalWrite(PIN_1, HIGH); //+３.３Vをオン
 		}
 		else
 		{
-			digitalWrite(pin_1, LOW); //+３.３Vをオフ。つまり、０V
+			digitalWrite(PIN_1, LOW); //+３.３Vをオフ。つまり、０V
 		}
 
 		if (data[1] == 1)
 		{
-			digitalWrite(pin_2, HIGH); //+３.３Vをオン
+			digitalWrite(PIN_2, HIGH); //+３.３Vをオン
 		}
 		else
 		{
-			digitalWrite(pin_2, LOW); //+３.３Vをオフ。つまり、０V
+			digitalWrite(PIN_2, LOW); //+３.３Vをオフ。つまり、０V
 		}
 
 		if (data[0] == 1)
 		{
-			digitalWrite(pin_3, HIGH); //+３.３Vをオン
+			digitalWrite(PIN_3, HIGH); //+３.３Vをオン
 		}
 		else
 		{
-			digitalWrite(pin_3, LOW); //+３.３Vをオフ。つまり、０V
+			digitalWrite(PIN_3, LOW); //+３.３Vをオフ。つまり、０V
 		}
 
 		if (count == 8) //countの値が８ならcountの値を０に戻す
@@ -81,9 +81,9 @@ int main(void)
 {
 	wiringPiSetup();		//https://projects.drogon.net/raspberry-pi/wiringpi/pins/を参照してポート番号を照らし合わせる。
 	pinMode(BUTTON, INPUT); //BUTTONは入力に設定
-	pinMode(pin_1, OUTPUT); //出力モード
-	pinMode(pin_2, OUTPUT); //出力モード
-	pinMode(pin_3, OUTPUT); //出力モード
+	pinMode(PIN_1, OUTPUT); //出力モード
+	pinMode(PIN_2, OUTPUT); //出力モード
+	pinMode(PIN_3, OUTPUT); //出力モード
 
 	loop(); //ループさせたいプログラム
 }
