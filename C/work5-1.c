@@ -9,7 +9,7 @@ void compute(void)
 	int x = 0;
 	for (int i = 0; i < 1000000; i++)
 	{
-		x = x + 1;
+		x = x + i;
 	}
 }
 
@@ -25,7 +25,7 @@ void average_of_10_times()
 		time_sum = (double)(end_clock - start_clock) + time_sum;
 	}
 	time_ave = time_sum / 10;
-	printf("ï¼‘å›žã®ç¹°ã‚Šè¿”ã—ã«ã‹ã‹ã‚‹å¹³å‡æ™‚é–“ã¯%fã§ã™ã€‚\n", time_ave / CLOCKS_PER_SEC);
+	printf("‚P‰ñ‚ÌŒJ‚è•Ô‚µ‚É‚©‚©‚é•½‹ÏŽžŠÔ‚Í%lf‚Å‚·B\n", time_ave / CLOCKS_PER_SEC);
 }
 
 int main(void)
