@@ -2,73 +2,48 @@
 #include <stdlib.h>
 #include <wiringPi.h>
 
-#define PIN_3 0	 //０番ポート使用。ラズパイ１１番ピンに接続。
+#define PIN_1 0	 //０番ポート使用。ラズパイ１１番ピンに接続。
 #define PIN_2 2	 //２番ポート使用。ラズパイ１３番ピンに接続。
-#define PIN_1 3	 //３番ポート使用。ラズパイ１５番ピンに接続。
-#define BUTTON 7 //７番ポート使用。ラズパイ７番ピンに接続。
+#define PIN_3 3	 //３番ポート使用。ラズパイ１５番ピンに接続。
+#define BUTTON 7 //１番ポート使用。ラズパイ１２番ピンに接続。
 
-int val = 0;	   //入力ピンの状態がこの変数(val)に記憶される
-int old_val = 0;   //valの前の値を保存しておく変数
-int data[3] = {0}; //ここに保存。０で初期化
-int count = 0;	   //ボタンが押された回数を記憶
+int val = 0;	 //入力ピンの状態がこの変数(val)に記憶される
+int old_val = 0; //valの前の値を保存しておく変数
+int leds[3] = {PIN_1, PIN_2, PIN_3};
 
-int convert_from_10_to_2(void) //１０進数から２進数に変換する関数
+void convert_from_10_to_2(int num) //１０進数から２進数に変換してLEDを光らせる関数
 {
-	int z = count; //変換したい１０進数
-	int tmp = 0;   //余りを代入する変数。０で初期化
-
 	for (int i = 0; i < 3; i++)
 	{
-		tmp = z % 2;   //余りを求めてtmpに代入
-		z = z / 2;	   //変換したい１０進数を２で割る
-		data[i] = tmp; //２進数を保存するところに余り(tmp)を代入
+		if (num % 2 == 1)
+		{
+			digitalWrite(leds[i], HIGH);
+		}
+		else if (num % 2 == 0)
+		{
+			digitalWrite(leds[i], LOW);
+		}
+		num = num / 2; //変換したい１０進数を２で割る
 	}
-
-	return 0;
 }
 
 void loop()
 {
+	int count = 0; //ボタンが押された回数を記憶
+
 	for (;;)
 	{
 		val = digitalRead(BUTTON); //入力を読みvalに新鮮な値を保存
 
-		if (val == HIGH) //ボタンが押されたら
+		if ((val == HIGH) && (old_val == LOW)) //ボタンが押されたら
 		{
 			count = 1 + count; //カウントアップする
 			delay(200);		   //デバウンシング処理
 		}
 
-		old_val = val; //古いvalはここに保管(今回いらないかも)
+		old_val = val; //古いvalはここに保管
 
-		convert_from_10_to_2(); //１０進数から２進数に変換する関数
-
-		if (data[2] == 1)
-		{
-			digitalWrite(PIN_1, HIGH); //+３.３Vをオン
-		}
-		else
-		{
-			digitalWrite(PIN_1, LOW); //+３.３Vをオフ。つまり、０V
-		}
-
-		if (data[1] == 1)
-		{
-			digitalWrite(PIN_2, HIGH); //+３.３Vをオン
-		}
-		else
-		{
-			digitalWrite(PIN_2, LOW); //+３.３Vをオフ。つまり、０V
-		}
-
-		if (data[0] == 1)
-		{
-			digitalWrite(PIN_3, HIGH); //+３.３Vをオン
-		}
-		else
-		{
-			digitalWrite(PIN_3, LOW); //+３.３Vをオフ。つまり、０V
-		}
+		convert_from_10_to_2(count);
 
 		if (count == 8) //countの値が８ならcountの値を０に戻す
 		{
