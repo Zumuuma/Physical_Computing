@@ -25,7 +25,7 @@ void average_of_10_times()
 		time_sum = (double)(end_clock - start_clock) + time_sum;
 	}
 	time_ave = time_sum / 10;
-	printf("‚P‰ñ‚ÌŒJ‚è•Ô‚µ‚É‚©‚©‚é•½‹ÏŠÔ‚Í%lf‚Å‚·B\n", time_ave / CLOCKS_PER_SEC);
+	printf("ï¼‘å›ã®ç¹°ã‚Šè¿”ã—ã«ã‹ã‹ã‚‹å¹³å‡æ™‚é–“ã¯%lfã§ã™ã€‚\n", time_ave / CLOCKS_PER_SEC);
 }
 
 int main(void)
