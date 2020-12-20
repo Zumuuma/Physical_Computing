@@ -8,7 +8,7 @@ void loop()
 {
 	for (;;)
 	{
-		pwmWrite(PWM_PIN, 1600); //pwmWrite(pin番号,デューティー比(０～pwm rangeの範囲)) (例：１０％(２００/２０００))
+		pwmWrite(PWM_PIN, 1600); //pwmWrite(pin番号,デューティー比(０～pwm rangeの範囲)) (例：８０％(１６００/２０００))
 	}
 }
 
