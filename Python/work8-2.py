@@ -1,7 +1,7 @@
 import requests
 from time import sleep
 
-api_key = '0PNGGPVT4PU6H5K8'
+api_key = 'API_KEY'
 url = 'https://api.thingspeak.com/channels/1225088/feeds.json'
 
 
