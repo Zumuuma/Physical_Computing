@@ -1,7 +1,7 @@
 window.onload = Main;
 
 const base_url = "https://api.thingspeak.com/channels/1225088/feeds.json";
-const api_key = "0PNGGPVT4PU6H5K8";
+const api_key = "API_KEY";
 
 let app;
 
