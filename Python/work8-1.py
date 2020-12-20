@@ -3,7 +3,7 @@ from time import sleep
 from adc_8chan_12bit import Pi_hat_adc
 
 adc = Pi_hat_adc()
-api_key = '60F7C0A20Z0DG18N'
+api_key = 'API_KEY'
 url = 'https://api.thingspeak.com/update'
 
 
