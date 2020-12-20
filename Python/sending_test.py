@@ -1,7 +1,7 @@
 import requests
 from time import sleep
 
-api_key = '60F7C0A20Z0DG18N'
+api_key = 'API_KEY'
 url = 'https://api.thingspeak.com/update'
 
 
