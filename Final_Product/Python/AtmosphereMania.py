@@ -272,7 +272,8 @@ if __name__ == '__main__':
             lcd1306.disp_display()  # Displayに表示する
             iothub_client_telemetry()  # Azureにデータ飛ばす
             led.off()  # リフレッシュLEDオフ
-            time.sleep(15)  # １５秒間隔で一連のループ動作を実行
+            time.sleep(11)  # １１秒間隔で一連のループ動作を実行(Azureの上限が１日８０００回までだから)
+            # ６０/１１＝５.５回(１分間で５.５回) ５.５ｘ６０＝３３０回(１時間で３３０回) ３３０ｘ２４＝７９２０回(２４時間<１日>で７９２０回)
     except KeyboardInterrupt:
         pass
     finally:
