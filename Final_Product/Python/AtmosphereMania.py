@@ -261,6 +261,9 @@ if __name__ == '__main__':
             lcd1306.draw_background(__outline)  # 背景描画
             x_axis = 5
             y_axis = 5
+            draw_text = '  Atmosphere Mania'
+            lcd1306.draw_text(x_axis, y_axis, draw_text)
+            y_axis = y_axis + 16
             draw_text = 'temp : {:-6.2f} c'.format(temp)
             lcd1306.draw_text(x_axis, y_axis, draw_text)  # 温度を表示
             y_axis = y_axis + 16
